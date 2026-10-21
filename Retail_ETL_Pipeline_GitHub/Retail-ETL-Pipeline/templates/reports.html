@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Reports | Retail Intelligence</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <aside class="sidebar">
+
+        <h2>Retail ETL</h2>
+
+        <ul>
+
+            <li><a href="/">Dashboard</a></li>
+
+            <li><a href="/analytics">Analytics</a></li>
+
+            <li><a href="/products">Products</a></li>
+
+            <li><a href="/customers">Customers</a></li>
+
+            <li><a href="/stores">Stores</a></li>
+
+            <li class="active">
+                <a href="/reports">Reports</a>
+            </li>
+
+        <li><a class="evaluation-link" href="/evaluation">Performance Evaluation</a></li>
+</ul>
+
+    </aside>
+
+
+    <main class="main">
+
+        <header class="topbar">
+
+            <div>
+
+                <h1>Reports</h1>
+
+                <p>Key business performance indicators</p>
+
+            </div>
+
+        </header>
+
+
+        <section class="cards">
+
+            <div class="card">
+
+                <h3>Total Revenue</h3>
+
+                <h2>
+                    R {{ "{:,.2f}".format(total_revenue) }}
+                </h2>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>Total Orders</h3>
+
+                <h2>
+                    {{ "{:,}".format(total_orders) }}
+                </h2>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>Average Sale</h3>
+
+                <h2>
+                    R {{ "{:,.2f}".format(average_sale) }}
+                </h2>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>Top Category</h3>
+
+                <h2>
+                    {{ top_category }}
+                </h2>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>Top Store</h3>
+
+                <h2>
+                    {{ top_store }}
+                </h2>
+
+            </div>
+
+        </section>
+
+
+        <section class="info-panel report-panel">
+
+            <h2>Business Summary</h2>
+
+            <p>
+                The reporting layer provides a consolidated view of
+                transaction activity and revenue performance.
+            </p>
+
+            <p>
+                Revenue and order metrics are calculated directly from
+                the PostgreSQL transaction data.
+            </p>
+
+            <p>
+                Category and store rankings identify areas of stronger
+                sales performance.
+            </p>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+</body>
+
+</html>

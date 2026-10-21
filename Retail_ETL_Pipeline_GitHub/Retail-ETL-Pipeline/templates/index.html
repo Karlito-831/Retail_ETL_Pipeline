@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Retail Intelligence Dashboard</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <aside class="sidebar">
+
+        <h2>Retail ETL</h2>
+
+<ul>
+
+    <li class="active">
+        <a href="/">Dashboard</a>
+    </li>
+
+    <li>
+        <a href="/analytics">Analytics</a>
+    </li>
+
+    <li>
+        <a href="/products">Products</a>
+    </li>
+
+    <li>
+        <a href="/customers">Customers</a>
+    </li>
+
+    <li>
+        <a href="/stores">Stores</a>
+    </li>
+
+    <li>
+        <a href="/reports">Reports</a>
+    </li>
+
+<li><a class="evaluation-link" href="/evaluation">Performance Evaluation</a></li>
+</ul>
+
+    </aside>
+
+    <main class="main">
+
+        <header class="topbar">
+
+            <div>
+
+                <h1>Retail Intelligence Dashboard</h1>
+
+                <p>Python • PostgreSQL • Flask • ETL Pipeline</p>
+
+            </div>
+
+            <div class="status">
+
+                🟢 Database Connected
+
+            </div>
+
+        </header>
+
+        <section class="cards">
+
+            <div class="card">
+                <h3>Customers</h3>
+                <h2>{{ customers }}</h2>
+            </div>
+
+            <div class="card">
+                <h3>Products</h3>
+                <h2>{{ products }}</h2>
+            </div>
+
+            <div class="card">
+                <h3>Stores</h3>
+                <h2>{{ stores }}</h2>
+            </div>
+
+            <div class="card">
+                <h3>Transactions</h3>
+                <h2>{{ transactions }}</h2>
+            </div>
+
+            <div class="card">
+                <h3>Total Revenue</h3>
+                <h2>R {{ "{:,.0f}".format(revenue) }}</h2>
+            </div>
+
+            <div class="card">
+                <h3>Average Sale</h3>
+                <h2>R {{ "{:,.2f}".format(avg_sale) }}</h2>
+            </div>
+
+        </section>
+
+        <section class="charts">
+
+            <div class="chart-large">
+
+                {{ chart|safe }}
+
+            </div>
+
+            <div class="info-panel">
+
+                <h2>Pipeline Status</h2>
+
+                <p>✅ Extraction Complete</p>
+
+                <p>✅ Transformation Complete</p>
+
+                <p>✅ PostgreSQL Loaded</p>
+
+                <p>✅ Dashboard Live</p>
+
+                <hr>
+
+                <h3>Project Stack</h3>
+
+                <p>Python</p>
+                <p>PostgreSQL</p>
+                <p>SQLAlchemy</p>
+                <p>Flask</p>
+                <p>Plotly</p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+</body>
+
+</html>

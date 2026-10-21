@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Customers | Retail Intelligence</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <aside class="sidebar">
+
+        <h2>Retail ETL</h2>
+
+        <ul>
+
+            <li><a href="/">Dashboard</a></li>
+
+            <li><a href="/analytics">Analytics</a></li>
+
+            <li><a href="/products">Products</a></li>
+
+            <li class="active">
+                <a href="/customers">Customers</a>
+            </li>
+
+            <li><a href="/stores">Stores</a></li>
+
+            <li><a href="/reports">Reports</a></li>
+
+        <li><a class="evaluation-link" href="/evaluation">Performance Evaluation</a></li>
+</ul>
+
+    </aside>
+
+
+    <main class="main">
+
+        <header class="topbar">
+
+            <div>
+
+                <h1>Customers</h1>
+
+                <p>Customer purchasing activity and spending</p>
+
+            </div>
+
+        </header>
+
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>City</th>
+                        <th>Orders</th>
+                        <th>Total Spending</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    {% for customer in customers %}
+
+                    <tr>
+
+                        <td>{{ customer[0] }}</td>
+
+                        <td>
+                            {{ customer[1] }} {{ customer[2] }}
+                        </td>
+
+                        <td>{{ customer[3] }}</td>
+
+                        <td>{{ customer[4] }}</td>
+
+                        <td>{{ customer[5] }}</td>
+
+                        <td>
+                            R {{ "{:,.2f}".format(customer[6]) }}
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+</body>
+
+</html>
